@@ -1,0 +1,19 @@
+package ex02;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		GenericXmlApplicationContext ctx =
+				new GenericXmlApplicationContext("application-context.xml");
+		
+		Hotel hotel = ctx.getBean(Hotel.class);
+		hotel.getChef().cooking();
+		
+		
+		
+	}
+	
+	
+}

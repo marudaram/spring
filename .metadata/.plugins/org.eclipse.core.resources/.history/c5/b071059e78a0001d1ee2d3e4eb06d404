@@ -1,0 +1,21 @@
+package ex03;
+
+import java.util.List;
+
+public class Customer {
+	
+	//list or map의 의존성 주입
+	private List<String> lists;
+	
+	//getter
+	public List<String> getLists() {
+		return lists;
+	}
+	//setter
+	public void setLists(List<String> lists) {
+		this.lists = lists;
+	}
+	
+	
+
+}
