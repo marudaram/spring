@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	
+	<!-- 자동주입 명령 - context 모듈의 특정 기능이 필요 -->
+	<context:annotation-config/>
+	
+	<bean id="doc1" class="ex05.Document"/>
+	<bean id="doc2" class="ex05.Document"/>
+	
+	<bean id="printer" class="ex05.Printer"/>
+	
+
+</beans>

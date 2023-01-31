@@ -10,6 +10,8 @@
 		<config>src/main/resources/application-context.xml</config>
 		<config>src/main/resources/collection-context.xml</config>
 		<config>src/main/resources/aaa-context.xml</config>
+		<config>src/main/resources/autowired-context.xml</config>
+		<config>src/main/resources/hello-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
