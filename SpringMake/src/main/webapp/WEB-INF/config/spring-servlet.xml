@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 
 	<!-- 메인컨트롤러를 빈으로 등록 -->
@@ -9,7 +13,7 @@
 
 	<!-- 핸들러맵핑 등록 -->
 	<!-- /test/aaa 요청이 들어오면 xxx빈으로 핸드러맵핑 시킨다는 의미 -->
-	<bean
+	<!-- <bean
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
@@ -17,7 +21,22 @@
 				<prop key="/test/bbb">xxx</prop>
 			</props>
 		</property>
-	</bean>
+	</bean> -->
+	
+	<!-- 스프링 내부에 있는 어노테이션 방법으로 핸들러맵핑과 핸들러어뎁터 기능을 제공 -->
+	<mvc:annotation-driven/>
+	
+	<!-- 해당 패키지를 읽어서 @Controller가 있는 클래스를 자동으로 bean으로 등록, include, exclude를 확장시켜 사용 가능하다 -->
+	
+	<context:component-scan base-package="com.simple.controller">
+		<context:include-filter type="annotation" expression="com.simple.controller"/>
+	</context:component-scan>
+	
+	
+	<!-- css, js 정적자원들은 폴더경로로 바로 연결 -->
+	<!-- /resource 경로로 들어오면, /resource폴더 연결 -->
+	<mvc:resources location="/resource" mapping="/resource/**"/>
+	
 
 	<!-- 뷰 합성기(뷰리졸버) -->
 	<bean
