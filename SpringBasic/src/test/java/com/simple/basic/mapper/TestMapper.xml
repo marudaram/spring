@@ -10,6 +10,53 @@
 	<select id="getTime" resultType="string">
 		select now()
 	</select>
+	
+	
+	<!-- ;은 적지 않는다!! -->
+	<!-- 한 핸에 대한 처리를 할 데이터 타입(풀 경로) -->
+	<select id="getScore" resultType="com.simple.command.ScoreVO">
+		select * from score
+	</select>
+	
+	<!-- 매개변수 - 단일값(매개변수명을 그대로) -->
+	<select id="getOne" resultType="com.simple.command.ScoreVO">
+		select * from score where num = #{a}
+	</select>
+	
+	<!-- parameterType - 매개변수의 타입(생략가능) -->
+	<insert id="insertOne" parameterType="string">
+		insert into score(name) values (#{name})
+	</insert>
+	
+	<insert id="insertTwo" parameterType="com.simple.command.ScoreVO">
+		insert into score(name, kor, eng) 
+		values (#{name}, #{kor}, #{eng})
+	</insert>
+	
+	<insert id="insertThree">
+		insert into score(name, kor, eng)
+		values (#{name}, #{kor}, #{eng})
+	</insert>
+	
+	<!-- select태그의 경우 resultType은 필수, parameterType은 생략가능하다 -->
+	<select id="selectMap" resultType="map" parameterType="int">
+		select * from score where num = #{num}
+	</select>
+	
+	<select id="selectTwo" resultType="map">
+		select * from score
+	</select>
+	
+	<!-- alias설정이 있다면 parameter, result타입에 단축명으로 사용가능하다 -->
+	<update id="updateOne" >
+       update score set name = #{name}, kor = #{kor}, eng = #{eng}
+       where num = #{num}
+    </update>
+    
+    <insert id="insertFour">
+    	insert into score(name, kor) values (#{변수명1}, #{변수명2})
+    </insert>
+	
 
 </mapper>
   
