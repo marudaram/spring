@@ -1,9 +1,0 @@
-package ex02;
-
-public class MemberDAO {
-	
-	private DatabaseDev databaseDev;
-	
-	
-
-}

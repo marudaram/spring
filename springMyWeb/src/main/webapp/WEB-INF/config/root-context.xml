@@ -31,7 +31,11 @@
    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
       <!-- 데이터베이스 정보 전달 -->
       <property name="dataSource" ref="ds"></property>
+      <!-- 마이바티스 설정파일 경로 -->
       <property name="configLocation" value="classpath:/mybatis-config/mybatis-config.xml"></property>
+      <!-- 매퍼파일의 위치  -->
+      <property name="mapperLocations" value="classpath:/sqlmap/*.xml"/>
+      
    </bean>
    
    <!-- 마이바티스 xml의 위치지정 -->
